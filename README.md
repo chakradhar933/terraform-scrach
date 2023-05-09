@@ -55,7 +55,6 @@ aws configure
 #### Terraform Commands
 
 * First command is to initialize the terraform, at this stage terraform downloads the provider into .terraform folder.
-
 ```
 terraform init
 ```
