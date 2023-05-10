@@ -50,31 +50,31 @@ resource "aws_eip" "auto-eip" {
 
 }
 
-resource "aws_nat_gateway" "nat" {
-  allocation_id = aws_eip.auto-eip.id
-  subnet_id     = aws_subnet.public.id
+#resource "aws_nat_gateway" "nat" {
+  #allocation_id = aws_eip.auto-eip.id
+  #subnet_id     = aws_subnet.public.id
 
-  tags = {
-    Name = "automated-NAT"
-  }
+  #tags = {
+    #Name = "automated-NAT"
+  #}
 
   # To ensure proper ordering, it is recommended to add an explicit dependency
   # on the Internet Gateway for the VPC.
   depends_on = [aws_internet_gateway.automated-igw]
-}
+#}
 
-resource "aws_route_table" "private-rt" { #for private route we don't attach IGW, we attach NAT
-  vpc_id = aws_vpc.edstem-vpc.id
+#resource "aws_route_table" "private-rt" { #for private route we don't attach IGW, we attach NAT
+  #vpc_id = aws_vpc.edstem-vpc.id
 
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.nat.id
-  }
+  #route {
+    #cidr_block = "0.0.0.0/0"
+    #gateway_id = aws_nat_gateway.nat.id
+  #}
 
-  tags = {
-    Name = "private-rt"
-  }
-}
+  #tags = {
+  #  Name = "private-rt"
+  #}
+#}
 
 
 resource "aws_route_table_association" "public" {
