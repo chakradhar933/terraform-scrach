@@ -37,7 +37,7 @@ resource "aws_route_table" "public-rt" {
   vpc_id = aws_vpc.main.id
 
   route {
-    cidr_block = var.cidr
+    cidr_block = var.internet_cidr
     gateway_id = aws_internet_gateway.automated-igw.id
   }
 
@@ -67,7 +67,7 @@ resource "aws_route_table" "private-rt" { #for private route we don't attach IGW
   vpc_id = aws_vpc.main.id
 
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block = var.internet_cidr
     gateway_id = aws_nat_gateway.example.id
   }
 
