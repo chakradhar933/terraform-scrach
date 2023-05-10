@@ -1,6 +1,6 @@
 resource "aws_vpc" "edstem-vpc" { #this name belongs to only terraform reference
 
-    cidr_block       = "10.0.0.0/16"
+    cidr_block       = var.cidr
     instance_tenancy = "default"
     tags = {
         Name = "automated-vpc" #this name belongs to AWS
