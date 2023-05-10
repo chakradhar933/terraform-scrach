@@ -60,7 +60,7 @@ resource "aws_eip" "auto-eip" {
 
   # To ensure proper ordering, it is recommended to add an explicit dependency
   # on the Internet Gateway for the VPC.
-  depends_on = [aws_internet_gateway.automated-igw]
+  #depends_on = [aws_internet_gateway.automated-igw]
 #}
 
 #resource "aws_route_table" "private-rt" { #for private route we don't attach IGW, we attach NAT
