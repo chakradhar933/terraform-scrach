@@ -2,27 +2,35 @@ resource "aws_subnet" "public" {
   vpc_id     = aws_vpc.main.id # it will fetch VPC ID created from above code
   cidr_block = var.public_subnet_cidr # this is hard coding
 
-  tags = var.tags 
+  tags = merge(var.tags,{
+    Name = "public-subnet"
+  }) 
 }
 
 resource "aws_vpc" "main" { #this name belongs to only terraform reference
 
     cidr_block       = var.cidr
     instance_tenancy = "default"
-    tags = var.tags
+    tags = merge(var.tags,{
+      Name = "edstem-vpc"
+    })
 }
 
 resource "aws_subnet" "private" {
   vpc_id     = aws_vpc.main.id # it will fetch VPC ID created from above code
   cidr_block = "10.0.2.0/24"
 
-  tags = var.tags
+  tags = merge(var.tags,{
+    Name = "private-subnet"
+  })
 }
 
 resource "aws_internet_gateway" "automated-igw" {
   vpc_id = aws_vpc.main.id # internet gateway depends on VPC
 
-  tags =  var.tags
+  tags =  merge(var.tags,{
+    Name = "IGW"
+  })
 }
 
 resource "aws_route_table" "public-rt" {
@@ -33,7 +41,9 @@ resource "aws_route_table" "public-rt" {
     gateway_id = aws_internet_gateway.automated-igw.id
   }
 
-  tags = var.tags
+  tags = merge(var.tages,{
+    Name = "public-route"
+  })
 }
 
 resource "aws_eip" "auto-eip" {
@@ -44,7 +54,9 @@ resource "aws_nat_gateway" "example" {
   allocation_id = aws_eip.auto-eip.id
   subnet_id     = aws_subnet.public.id
 
-  tags = var.tags
+  tags = merge(var.tags,{
+    Name = "NAT"
+  })
 
   # To ensure proper ordering, it is recommended to add an explicit dependency
   # on the Internet Gateway for the VPC.
@@ -59,7 +71,9 @@ resource "aws_route_table" "private-rt" { #for private route we don't attach IGW
     gateway_id = aws_nat_gateway.example.id
   }
 
-  tags = var.tags
+  tags = merge(var.tags,{
+    Name = "private-rt"
+  })
 }
 
 
