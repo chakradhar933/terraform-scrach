@@ -11,7 +11,7 @@ variable "private_subnet_cidr" {
     type = string
 }
 
-variable "route_public_cidr {
+variable "public_route_cidr {
     type = string
 }
 
