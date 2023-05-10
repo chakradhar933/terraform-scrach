@@ -7,10 +7,10 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "edstem-project933"
-    key    = "project"
+    bucket = "timing-remotestate-backend"
+    key    = "timing"
     region = "us-east-1"
-    dynamodb_table = "edstem-lock"
+    dynamodb_table = "timing-lock"
   }
 }
 
