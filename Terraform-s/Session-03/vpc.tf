@@ -41,7 +41,7 @@ resource "aws_route_table" "public-rt" {
     gateway_id = aws_internet_gateway.automated-igw.id
   }
 
-  tags = merge(var.tages,{
+  tags = merge(var.tags,{
     Name = "public-route"
   })
 }
