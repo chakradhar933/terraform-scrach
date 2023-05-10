@@ -18,7 +18,7 @@ resource "aws_vpc" "main" { #this name belongs to only terraform reference
 
 resource "aws_subnet" "private" {
   vpc_id     = aws_vpc.main.id # it will fetch VPC ID created from above code
-  cidr_block = "10.0.2.0/24"
+  cidr_block = var.tags
 
   tags = merge(var.tags,{
     Name = "private-subnet"
@@ -37,7 +37,7 @@ resource "aws_route_table" "public-rt" {
   vpc_id = aws_vpc.main.id
 
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block = var.cidr
     gateway_id = aws_internet_gateway.automated-igw.id
   }
 
