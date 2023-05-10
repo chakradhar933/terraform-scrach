@@ -1,7 +1,7 @@
-resource "aws_lb" "test" {
-  name               = "test-lb-tf"
-  internal           = false
-  load_balancer_type = "application"
+resource "aws_lb" "ALB" {
+  name               = "edstem"
+  internal           = var.internet
+  load_balancer_type = var.lb_type
   security_groups    = [aws_security_group.lb_sg.id]
   subnets            = [for subnet in aws_subnet.public : subnet.id]
 
