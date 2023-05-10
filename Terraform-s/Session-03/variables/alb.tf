@@ -1,4 +1,4 @@
-resource "aws_lb" "ALB" {
+resource "aws_lb" "alb" {
   name               = "edstem"
   internal           = var.internet
   load_balancer_type = var.lb_type
