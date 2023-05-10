@@ -8,7 +8,7 @@ terraform {
   backend "s3" {
     bucket = "edstem-project933"
     region = "us-east-1"
-    dynamodb_table = "edstem-timing"
+    dynamodb_table = "edstem-lock"
   }
 }
 
