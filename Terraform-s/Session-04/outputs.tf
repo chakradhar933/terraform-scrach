@@ -1,3 +1,3 @@
 output "ip_address" {
-    value = "aws_instance.Timing.public_ip"
+    value = aws_instance.Timing.public_ip
 }
