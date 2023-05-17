@@ -14,5 +14,5 @@ output "arn-details" {
     value = aws_instance.Timing.arn
 }
 output "ami_id" {
-    value = data.aws_ami.ami-info.image_id
+    value = data.aws_ami.ami_info.image_id
 }
