@@ -23,7 +23,7 @@ output "current_region" {
     value = data.aws_region.current.name
 }
 
-data "aws_vpc" "existing" {
+data "aws_vpc" "existing_vpc" {
   id = "vpc-037e0fc5aadc23743"
 }
 output "existing_vpc" {
