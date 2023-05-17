@@ -5,6 +5,6 @@ resource "aws_instance" "web"{
     instance_type = "t3.micro"
     count = 3
     tags = {
-        name = "web${count.index}"
+        name = var.instances[count.index] # index always starts with 0
     }
 }
