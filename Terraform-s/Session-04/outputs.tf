@@ -4,3 +4,12 @@ output "ip_address" {
 output "instance-state" {
     value = aws_instance.Timing.instance_state
 }
+output "private-dns" {
+    value = aws_instance.Timing.private_dns
+}
+output "public-dns" {
+    value = aws_instance.Timing.public_dns
+}
+output "arn-details" {
+    value = aws_instance.Timing.arn
+}
