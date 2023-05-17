@@ -13,6 +13,6 @@ output "public-dns" {
 output "arn-details" {
     value = aws_instance.Timing.arn
 }
-output "ami_id" {
-    value = data.aws_ami.ami_info.image_id
-}
+#output "ami_id" {
+ #   value = data.aws_ami.ami_info.image_id
+#}
