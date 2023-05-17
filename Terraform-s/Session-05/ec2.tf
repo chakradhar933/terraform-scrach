@@ -3,7 +3,7 @@ resource "aws_instance" "web"{
 
     ami = "ami-06a0cd9728546d178" #AMI ID will be different every region, this is OS
     instance_type = "t3.micro"
-    count = 3
+    count = length(var.instances)
     tags = {
         Name = var.instances[count.index] # index always starts with 0
     }
