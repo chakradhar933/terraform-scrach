@@ -1,3 +1,3 @@
 output "ip_address" {
-    value = aws_instance.web.publip_ip
+    value = aws_instance.servers.public_ip
 }
