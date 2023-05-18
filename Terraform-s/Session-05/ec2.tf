@@ -11,8 +11,18 @@
 
 # The condition is if variable of key is defined then use that , otherwise use default key.
 
-resource "aws_instance" "web" {
+# resource "aws_instance" "web" {
+#     ami = "ami-06a0cd9728546d178"
+#     instance_type = var.is_test ? "t3.micro" : "t3.large"
+  
+# }
+
+resource "aws_instance" "servers" {
+    for_each = var.servers # Here we need to give map to iterate.
     ami = "ami-06a0cd9728546d178"
-    instance_type = var.is_test ? "t3.micro" : "t3.large"
+    instance_type = each.value
+    tags = {
+        Name = each.key
+    }
   
 }
