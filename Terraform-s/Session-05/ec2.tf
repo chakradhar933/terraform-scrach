@@ -17,12 +17,20 @@
   
 # }
 
-resource "aws_instance" "servers" {
-    for_each = var.servers # Here we need to give map to iterate.
+# resource "aws_instance" "servers" {
+#     for_each = var.servers # Here we need to give map to iterate.
+#     ami = "ami-06a0cd9728546d178"
+#     instance_type = each.value
+#     tags = {
+#         Name = each.key
+#     }
+  
+# }
+resource "aws_instance" "web" {
     ami = "ami-06a0cd9728546d178"
-    instance_type = each.value
+    instance_type = "t3.micro"
     tags = {
-        Name = each.key
+        Name = local.instance_name
     }
   
 }

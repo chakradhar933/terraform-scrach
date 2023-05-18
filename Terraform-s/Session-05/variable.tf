@@ -17,3 +17,13 @@ variable "servers" {
     }
   
 }
+variable "instance_name" {
+    type = string
+    default = "web-server"
+  
+}
+
+variable "env" {
+  type = string
+  default = "web-server-dev"
+}
