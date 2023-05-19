@@ -2,7 +2,9 @@ resource "aws_instance" "servers" {
     ami = data.aws_ami.ami-info.image_id
     instance_type = var.instance_type
     #count = 1
-    security_groups = "hai"
+    security_groups = [
+    aws_security_group.servers.hai
+  ]
     tags = {
         Name = "web"
     }
