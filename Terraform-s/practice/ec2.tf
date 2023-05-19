@@ -2,11 +2,7 @@ resource "aws_instance" "server" {
     ami = data.aws_ami.ami-info.image_id
     instance_type = var.instance_type
     #count = 1
-
-    security_groups = [
-    aws_security_group.server.hai,
-    aws_security_group.another_sg.hai
-  ]
+    security_groups = [ aws_security_group.hai.hai-1 ]
     tags = {
         Name = "web"
     }
@@ -14,7 +10,7 @@ resource "aws_instance" "server" {
 }
 
 resource "aws_security_group" "hai" {
-  name        = "hai"
+  name        = "hai-1"
   description = "Allow TLS inbound traffic"
 
   ingress {
