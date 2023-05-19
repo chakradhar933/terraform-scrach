@@ -2,7 +2,7 @@ resource "aws_instance" "server" {
     ami = data.aws_ami.ami-info.image_id
     instance_type = var.instance_type
     #count = 1
-    security_groups = ["data.aws_security_group.sg-info.id"]
+    security_groups = data.aws_security_group.sg-info.id
     tags = {
         Name = "web"
     }
