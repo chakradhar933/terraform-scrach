@@ -14,9 +14,9 @@ resource "aws_security_group" "hai" {
   description = "Allow TLS inbound traffic"
 
   ingress {
-    description      = "TLS "
-    from_port        = 443
-    to_port          = 443
+    description      = "TCP "
+    from_port        = 80
+    to_port          = 80
     protocol         = "tcp"
     #cidr_blocks      = [aws_vpc.main.cidr_block]
     #ipv6_cidr_blocks = [aws_vpc.main.ipv6_cidr_block]
