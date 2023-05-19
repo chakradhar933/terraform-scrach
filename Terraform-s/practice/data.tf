@@ -11,3 +11,12 @@ data "aws_ami" "ami-info" {
 
     }
 }
+
+data "aws_security_group" "sg-info" {
+  most_recent = true
+  owners = ["046251782497"]
+    filter {
+      name = "name"
+      values = ["default"]
+    }
+}
