@@ -6,8 +6,8 @@ data "aws_ami" "ami-info" {
       values = ["amzn2-ami-*-x86_64-gp2"]
     }
     filter {
-        name = "virtulization-type"
-        values = ["hvm"]
+      name = "virtualization-type"
+      values = ["hvm"]
 
     }
 }
