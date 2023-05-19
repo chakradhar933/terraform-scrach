@@ -3,5 +3,5 @@ output "ip_address" {
 }
 
 output "ami_id" {
-    value = aws_instance.servers.ami_id
+    value = aws_instance.servers.ami
 }
