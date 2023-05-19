@@ -14,7 +14,7 @@ data "aws_ami" "ami-info" {
 
 data "aws_security_group" "sg-info" {
   #most_recent = true
-    owners = ["046251782497"]
+    id = "sg-0a503ad03d588dfc4"
     filter {
       name = "name"
       values = ["default"]
